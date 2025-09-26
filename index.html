@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A/B Sandbox</title>
+
+    <!-- ВСТАВЬ СЮДА GTM head snippet (из интерфейса GTM) -->
+    <!-- Примерно здесь будет <script>...googletagmanager...</script> -->
+
+    <meta name="robots" content="noindex, nofollow" />
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; display:flex; min-height:100svh; align-items:center; justify-content:center; }
+      .card { padding:24px 28px; border:1px solid #eee; border-radius:12px; box-shadow:0 2px 14px rgba(0,0,0,.06); text-align:center; }
+      button { font-size:16px; padding:12px 18px; border-radius:10px; border:0; cursor:pointer; }
+    </style>
+  </head>
+  <body>
+    <!-- ВСТАВЬ СЮДА GTM noscript (из интерфейса GTM) -->
+    <!-- Примерно здесь будет <noscript><iframe ...></iframe></noscript> -->
+
+    <div class="card">
+      <h1>Песочница для A/B</h1>
+      <p>Ниже — кнопка, на ней удобно тестировать изменения стилей/текста.</p>
+      <button id="cta">Жми меня</button>
+    </div>
+
+    <script>
+      // Маленький хелпер: отправим событие в dataLayer, чтобы удобно триггерить конверсию через GTM
+      window.dataLayer = window.dataLayer || [];
+      document.getElementById('cta').addEventListener('click', () => {
+        window.dataLayer.push({ event: 'cta_click' });
+      });
+    </script>
+  </body>
+</html>
