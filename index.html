@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>A/B Sandbox</title>
 
-    <!-- ВСТАВЬ СЮДА GTM head snippet (из интерфейса GTM) -->
-    <!-- Примерно здесь будет <script>...googletagmanager...</script> -->
+    <!-- GTM head snippet (если нужен) -->
+    <!-- <script>...googletagmanager...</script> -->
 
     <meta name="robots" content="noindex, nofollow" />
     <style>
@@ -14,10 +14,31 @@
       .card { padding:24px 28px; border:1px solid #eee; border-radius:12px; box-shadow:0 2px 14px rgba(0,0,0,.06); text-align:center; }
       button { font-size:16px; padding:12px 18px; border-radius:10px; border:0; cursor:pointer; }
     </style>
+
+    <script>
+      window.hypotestsConfig = {
+        apiBaseUrl: 'http://localhost:8080', // замените на URL вашего backend
+        experimentKey: 'home-page-cta',
+        debug: true,
+        variants: {
+          control: {
+            trackClicks: ['#cta']
+          },
+          variant_green: {
+            actions: [
+              { selector: '#cta', type: 'text', value: 'Получить бонус' },
+              { selector: '#cta', type: 'style', property: 'backgroundColor', value: '#0FA958' }
+            ],
+            trackClicks: ['#cta']
+          }
+        }
+      };
+    </script>
+    <script defer src="https://konovalovtim.github.io/hypotests/snippet.min.js"></script>
   </head>
   <body>
-    <!-- ВСТАВЬ СЮДА GTM noscript (из интерфейса GTM) -->
-    <!-- Примерно здесь будет <noscript><iframe ...></iframe></noscript> -->
+    <!-- GTM noscript (если нужен) -->
+    <!-- <noscript><iframe ...></iframe></noscript> -->
 
     <div class="card">
       <h1>Тест кнопки для A/B</h1>
@@ -25,7 +46,6 @@
     </div>
 
     <script>
-      // Маленький хелпер: отправим событие в dataLayer, чтобы удобно триггерить конверсию через GTM
       window.dataLayer = window.dataLayer || [];
       document.getElementById('cta').addEventListener('click', () => {
         window.dataLayer.push({ event: 'cta_click' });
