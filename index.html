@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>A/B Sandbox</title>
 
-    <!-- GTM head snippet (если нужен) -->
-    <!-- <script>...googletagmanager...</script> -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T284385J');</script>
+    <!-- End Google Tag Manager -->
 
     <meta name="robots" content="noindex, nofollow" />
     <style>
@@ -14,32 +19,12 @@
       .card { padding:24px 28px; border:1px solid #eee; border-radius:12px; box-shadow:0 2px 14px rgba(0,0,0,.06); text-align:center; }
       button { font-size:16px; padding:12px 18px; border-radius:10px; border:0; cursor:pointer; }
     </style>
-
-    <script>
-      window.hypotestsConfig = {
-        apiBaseUrl: 'https://stockless-unwailing-jolene.ngrok-free.dev', // замените на URL вашего backend
-        experimentKey: 'home-page-cta',
-        region: 'eu',
-        debug: true,
-        variants: {
-          control: {
-            trackClicks: ['#cta']
-          },
-          variant_green: {
-            actions: [
-              { selector: '#cta', type: 'text', value: 'Получить бонус' },
-              { selector: '#cta', type: 'style', property: 'backgroundColor', value: '#0FA958' }
-            ],
-            trackClicks: ['#cta']
-          }
-        }
-      };
-    </script>
-    <script defer src="https://konovalovtim.github.io/hypothesistest/assets/snippet.min.js"></script>
   </head>
   <body>
-    <!-- GTM noscript (если нужен) -->
-    <!-- <noscript><iframe ...></iframe></noscript> -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T284385J"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <div class="card">
       <h1>Тест кнопки для A/B</h1>
