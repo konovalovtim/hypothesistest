@@ -20,14 +20,22 @@
 <script>
 ;(function() {
   var config = Object.assign({
-    apiBaseUrl: 'https://fn1nw5fw-8080.euw.devtunnels.ms/',
+    apiBaseUrl: 'http://localhost:8080',
     experimentKey: 'home-page-cta',
     debug: false,
     platform: 'desktop',
     region: 'ru',
     variants: {
-      'control': { allocationPercent: 50, name: 'Control' },
-      'variant_green': { allocationPercent: 50, name: 'Green CTA' }
+      'control': { allocationPercent: 50, name: 'Control',
+        actions: [
+        { selector: '#cta', type: 'text', value: 'Жми меня' },
+        { selector: '#cta', type: 'style', value: '#0FA958', property: 'backgroundColor' }
+      ], trackClicks: ['#cta'] },
+      'variant_green': { allocationPercent: 50, name: 'Green CTA',
+        actions: [
+        { selector: '#cta', type: 'text', value: 'Получить бонус' },
+        { selector: '#cta', type: 'style', value: '#0FA958', property: 'backgroundColor' }
+      ], trackClicks: ['#cta'] }
     }
   }, window.hypotestsConfig || {});
 
