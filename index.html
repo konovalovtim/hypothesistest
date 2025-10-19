@@ -43,14 +43,13 @@
       <button id="cta">Жми меня</button>
     </div>
     <!-- Hypotests: эксперимент "cta-style-test" -->
-    <script>
+<script>
 ;(function() {
   var config = Object.assign({
     apiBaseUrl: 'http://localhost:8080',
     experimentKey: 'cta-style-test',
     debug: false,
     platform: 'desktop',
-    region: 'eu',
     variants: {
       'control': { allocationPercent: 50, name: 'Оригинал' },
       'styled': { allocationPercent: 50, name: 'Новый стиль кнопки',
