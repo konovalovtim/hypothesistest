@@ -42,22 +42,21 @@
       <h1>Тест кнопки для A/B</h1>
       <button id="cta">Жми меня</button>
     </div>
-        <!-- Hypotests: эксперимент "cta-style-test" -->
+        <!-- Hypotests: эксперимент "home-page-cta" -->
 <script>
 ;(function() {
   var config = Object.assign({
     apiBaseUrl: 'http://localhost:8080',
-    experimentKey: 'cta-style-test',
+    experimentKey: 'home-page-cta',
     debug: false,
     platform: 'desktop',
     region: 'ru',
     variants: {
-      'control': { allocationPercent: 50, name: 'Оригинал', trackClicks: ['#cta'] },
-      'styled': { allocationPercent: 50, name: 'Новый стиль кнопки',
+      'control': { allocationPercent: 50, name: 'Control', trackClicks: ['#cta'] },
+      'variant_green': { allocationPercent: 50, name: 'Green CTA',
         actions: [
-        { selector: '#cta', type: 'style', value: '#0FA958', property: 'backgroundColor' },
-        { selector: '#cta', type: 'style', value: '#FFFFFF', property: 'color' },
-        { selector: '#cta', type: 'style', value: '\'Montserrat\', sans-serif', property: 'fontFamily' }
+        { selector: '#cta', type: 'text', value: 'Получить бонус' },
+        { selector: '#cta', type: 'style', value: '#0FA958', property: 'backgroundColor' }
       ], trackClicks: ['#cta'] }
     }
   }, window.hypotestsConfig || {});
