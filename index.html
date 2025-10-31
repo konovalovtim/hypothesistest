@@ -52,7 +52,10 @@
     platform: 'desktop',
     region: 'ru',
     variants: {
-      'control': { allocationPercent: 50, name: 'Control', trackEvents: [
+      'control': { allocationPercent: 50, name: 'Control',
+        actions: [
+        { selector: '#cta', type: 'text', value: 'Получить бонус', property: 'backgroundColor', name: 'href' }
+      ], trackEvents: [
         { selector: '#cta', domEvent: 'click', eventType: 'CLICK' }
       ] },
       'variant_green': { allocationPercent: 50, name: 'Green CTA',
