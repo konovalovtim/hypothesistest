@@ -1,75 +1,73 @@
 <!doctype html>
-<html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>A/B Sandbox</title>
+  <html lang="ru">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>A/B Sandbox</title>
 
-    <style>
-      body { 
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; 
-        display:flex; 
-        min-height:100svh; 
-        align-items:center; 
-        justify-content:center; 
-      }
-
-      .card { 
-        padding:24px 28px; 
-        border:1px solid #eee; 
-        border-radius:12px; 
-        box-shadow:0 2px 14px rgba(0,0,0,.06); 
-        text-align:center; 
-      }
-
-      button { 
-        font-size:16px; 
-        padding:12px 18px; 
-        border-radius:10px; 
-        border:0; 
-        cursor:pointer; 
-        transition: background-color 0.3s ease;
-      }
-
-      button.red {
-        background-color: red;
-        color: white;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="card">
-      <h1>Тест кнопки для A/B</h1>
-      <button id="cta">Жми меня</button>
-    </div>
-        <!-- Hypotests: эксперимент "Тест CTA на главной" -->
-<script>
-;(function() {
-    // Окно проведения эксперимента: с 2026-01-30T11:18:00Z по 2026-01-31T11:18:00Z
-    var config = Object.assign({
-      apiBaseUrl: 'http://localhost:8080', // <-- поменяйте, если другой backend
-      experimentId: '0dce3e27-7006-4886-b81c-ab4638d40101',
-      experimentName: 'тест кнопки',
-      debug: true,
-      platform: 'desktop',
-      region: 'ru',
-      variants: {
-        '6998b212-aea9-4854-abb5-612a6cc4e095': { name: 'Вариант A',
-          trackEvents: [
-            { selector: '#cta', domEvent: 'click', eventType: 'CLICK' }
-          ]
-        },
-        '209221ec-3f25-4b9f-8a85-37f700b17f6e': { name: 'Вариант B',
-          trackEvents: [
-            { selector: '#cta', domEvent: 'click', eventType: 'CLICK' }
-          ]
+      <style>
+        body {
+          font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+          display:flex;
+          min-height:100svh;
+          align-items:center;
+          justify-content:center;
         }
-      }
-    }, window.hypotestsConfig || {});
 
-    window.hypotestsConfig = config;
+        .card {
+          padding:24px 28px;
+          border:1px solid #eee;
+          border-radius:12px;
+          box-shadow:0 2px 14px rgba(0,0,0,.06);
+          text-align:center;
+        }
 
-    var bundle =
+        button {
+          font-size:16px;
+          padding:12px 18px;
+          border-radius:10px;
+          border:0;
+          cursor:pointer;
+          transition: background-color 0.3s ease;
+        }
+
+        button.red {
+          background-color: red;
+          color: white;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="card">
+        <h1>Тест кнопки для A/B</h1>
+        <button id="cta">Жми меня</button>
+      </div>
+      <script>
+        ;(function() {
+          var config = Object.assign({
+            apiBaseUrl: 'http://localhost:8080',
+            experimentId: '0dce3e27-7006-4886-b81c-ab4638d40101',
+            experimentName: 'тест кнопки',
+            debug: true,
+            platform: 'desktop',
+            region: 'ru',
+            variants: {
+              '6998b212-aea9-4854-abb5-612a6cc4e095': { name: 'Вариант A',
+                trackEvents: [
+                  { selector: '#cta', domEvent: 'click', eventType: 'CLICK' }
+                ]
+              },
+              '209221ec-3f25-4b9f-8a85-37f700b17f6e': { name: 'Вариант B',
+                trackEvents: [
+                  { selector: '#cta', domEvent: 'click', eventType: 'CLICK' }
+                ]
+              }
+            }
+          }, window.hypotestsConfig || {});
+
+          window.hypotestsConfig = config;
+
+          var bundle =
   'LyohIEh5cG90ZXN0cyBTbmlwcGV0IHYwLjIuMCB8IE1JVCBMaWNlbnNlICovCihmdW5jdGlvbiAoKSB7CiAgY29uc3QgVkVSU0lPTiA9ICcwLjIuMCc7CiAgY29uc3QgU1RPUkFHRV9LRVkgPSAnaHlwb3Rlc3RzOnZpc2l0b3JJZCc7CiAgY29uc3QgQ09PS0lFX05B
   TUUgPSAnaHlwb3Rlc3RzX3ZpZCc7CiAgY29uc3QgQVNTSUdOX0VORFBPSU5UID0gJy9hcGkvdjEvYXNzaWduJzsKICBjb25zdCBFVkVOVF9FTkRQT0lOVCA9ICcvYXBpL3YxL2V2ZW50cyc7CgogIGZ1bmN0aW9uIHJlYWREYXRhc2V0Q29uZmlnKCkgewogICAgaWYgK
   HR5cGVvZiBkb2N1bWVudCA9PT0gJ3VuZGVmaW5lZCcpIHsKICAgICAgcmV0dXJuIHt9OwogICAgfQogICAgY29uc3Qgc2NyaXB0ID0gZG9jdW1lbnQuY3VycmVudFNjcmlwdDsKICAgIGlmICghc2NyaXB0IHx8ICFzY3JpcHQuZGF0YXNldCkgewogICAgICByZXR1cm
@@ -90,18 +88,20 @@
   dGlvbiB3cml0ZVN0b3JhZ2Uoa2V5LCB2YWx1ZSkgewogICAgaWYgKHR5cGVvZiB3aW5kb3cgPT09ICd1bmRlZmluZWQnKSB7CiAgICAgIHJldHVybjsKICAgIH0KICAgIHRyeSB7CiAgICAgIHdpbmRvdy5sb2NhbFN0b3JhZ2Uuc2V0SXRlbShrZXksIHZhbHVlKTsKI
   CAgIH0gY2F0Y2ggKGVycm9yKSB7CiAgICAgIC8qIGlnbm9yZSAqLwogICAgfQogIH0K  /* ... base64 bundle continues unchanged ... */
   ';
-    var decode = typeof window !== 'undefined' && window.atob ? window.atob : (typeof atob === 'function' ? atob : null);
-    if (!decode) { throw new Error('Base64 decoder is not available in this environment'); }
-    var decoded = decode(bundle);
-    (new Function(decoded))();
-  })();
+          var decode = typeof window !== 'undefined' && window.atob ? window.atob : (typeof atob === 'function' ? atob : null);
+          if (!decode) { throw new Error('Base64 decoder is not available in this environment'); }
 
-</script>
-    <script>
-      const btn = document.getElementById('cta');
-      btn.addEventListener('click', () => {
-        btn.classList.toggle('red');
-      });
-    </script>
-   </body>
-</html>
+          var cleaned = bundle.replace(/\s+/g, '');
+          var decoded = decode(cleaned);
+          (new Function(decoded))();
+        })();
+      </script>
+
+      <script>
+        const btn = document.getElementById('cta');
+        btn.addEventListener('click', () => {
+          btn.classList.toggle('red');
+        });
+      </script>
+    </body>
+  </html>
